@@ -9,13 +9,13 @@ ori $8, $8, 0x8D7D
 addiu $10, $0, 32           #exit upper loop counter value
 
 ori $5, $0, 0
-lui $5, 0x8000              #register 5 contains our bit battern to check for 
+lui $5, 0x8000              #register number 5 contains bit battern to check for 
 
 loop:
-and $4, $8, $5              #if left bit is 1 exit
+and $4, $8, $5              #if left bit is 1 then exit
 beq $4, $5, exit
 sll $8, $8, 1               #shift left
-beq $1, $10, exit           #if counter is 32 exit
+beq $1, $10, exit           #if counter is 32 then exit
 sll $0, $0, 0
 j loop
 addiu $1, $1, 1             #increment counter in branch delay slot
